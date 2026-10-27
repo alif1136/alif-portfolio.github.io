@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Name | AI/ML Research Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { ink:'#0B0F19', fog:'#F1F5F9', cyan:'#06B6D4', violet:'#8B5CF6', surface:'#0F1524', line:'#1E2638' },
+  fontFamily: { serif:['Newsreader','Georgia','serif'], sans:['IBM Plex Sans','system-ui','sans-serif'], mono:['IBM Plex Mono','ui-monospace','monospace'] }
+}}};
+</script>
+<style>
+:root { color-scheme: dark; box-sizing: border-box; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
+body { background:#0B0F19; color:#F1F5F9; }
+::selection { background:#06B6D4; color:#0B0F19; }
+:focus-visible { outline:2px solid #06B6D4; outline-offset:3px; border-radius:4px; }
+.ease { transition-timing-function: cubic-bezier(.22,1,.36,1); }
+.rv { opacity:0; transform:translateY(14px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); transition-delay:var(--d,0ms); }
+.rv.in { opacity:1; transform:none; }
+.hero-line { opacity:0; transform:translateY(22px); animation:rise 1s cubic-bezier(.22,1,.36,1) forwards; animation-delay:var(--d,0ms); }
+@keyframes rise { to { opacity:1; transform:none; } }
+.lk { background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat; transition:background-size .35s cubic-bezier(.22,1,.36,1), color .2s; }
+.lk:hover { background-size:100% 1px; color:#06B6D4; }
+.panel { animation:fadein .5s cubic-bezier(.22,1,.36,1); }
+@keyframes fadein { from { opacity:0; transform:translateY(8px);} to { opacity:1; transform:none; } }
+.ph { border:1px dashed #2A3550; border-radius:6px; padding:.55rem .75rem; color:#64748B; font-size:.875rem; }
+.pill { transition:border-color .25s, color .25s, transform .25s cubic-bezier(.22,1,.36,1), background .25s; }
+.pill:hover { border-color:#06B6D4; color:#06B6D4; transform:translateY(-2px); background:rgba(6,182,212,.06); }
+.grp-b .pill:hover { border-color:#8B5CF6; color:#C4B5FD; background:rgba(139,92,246,.07); }
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.24;animation:drift 24s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(7vw,5vh) scale(1.18)}}
+.gridbg{position:absolute;inset:0;background-image:linear-gradient(rgba(148,163,184,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.06) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse at 50% 30%,#000 20%,transparent 75%)}
+section.bg-surface{background:rgba(11,15,25,.55);backdrop-filter:blur(6px)}
+.glass{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));backdrop-filter:blur(14px);border:1px solid rgba(148,163,184,.14);transition:transform .5s cubic-bezier(.22,1,.36,1),color .3s}
+.glass::before,.glass::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .4s}
+.glass::before{background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(6,182,212,.13),transparent 60%)}
+.glass::after{padding:1px;background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),var(--ac,#06B6D4),transparent 60%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.glass:hover::before,.glass:hover::after{opacity:1}
+.gt{background:linear-gradient(100deg,#F1F5F9 0%,#67E8F9 40%,#A78BFA 80%,#F1F5F9 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 9s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.cta{background:linear-gradient(110deg,#06B6D4,#8B5CF6);box-shadow:0 10px 34px -10px rgba(6,182,212,.65)}
+.cta:hover{box-shadow:0 14px 40px -8px rgba(139,92,246,.7)}
+.pill{background:rgba(255,255,255,.03);backdrop-filter:blur(6px)}
+.pill:hover{box-shadow:0 0 24px -6px rgba(6,182,212,.6)}
+.grp-b .pill:hover{box-shadow:0 0 24px -6px rgba(139,92,246,.6)}
+.caret{display:inline-block;width:7px;height:1em;background:#06B6D4;margin-left:3px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.pdot{animation:pdot 2.4s ease-out infinite}
+@keyframes pdot{0%{box-shadow:0 0 0 0 rgba(6,182,212,.6)}100%{box-shadow:0 0 0 12px rgba(6,182,212,0)}}
+@media (prefers-reduced-motion: reduce) { .blob,.gt,.pdot,.caret{animation:none} }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
+  .rv, .hero-line, .panel { animation:none; transition:none; opacity:1; transform:none; }
+}
+</style>
+</head>
+<body class="font-sans antialiased leading-relaxed">
+<div id="bar" class="fixed top-0 left-0 h-[2px] w-full origin-left z-50" style="background:linear-gradient(90deg,#06B6D4,#8B5CF6);transform:scaleX(0)"></div>
+<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
+  <div class="blob" style="width:46vw;height:46vw;left:-10vw;top:-8vw;background:#06B6D4"></div>
+  <div class="blob" style="width:42vw;height:42vw;right:-12vw;top:30vh;background:#8B5CF6;animation-delay:-8s"></div>
+  <div class="blob" style="width:34vw;height:34vw;left:30vw;bottom:-14vw;background:#0E7490;animation-delay:-14s"></div>
+  <div class="gridbg"></div>
+</div>
+
+<!-- HERO -->
+<header class="relative min-h-[100svh] flex flex-col overflow-hidden">
+  <canvas id="net" class="absolute inset-0 w-full h-full" aria-hidden="true"></canvas>
+  <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 30% 50%,rgba(11,15,25,.85) 0%,rgba(11,15,25,.2) 70%)"></div>
+  <nav class="relative z-10 flex items-center justify-between px-6 md:px-12 py-6 text-sm text-slate-300">
+    <a href="#top" class="font-serif text-lg text-fog">Your Name</a>
+    <div class="hidden sm:flex gap-7">
+      <a class="lk" href="#about">About</a><a class="lk" href="#stack">Stack</a><a class="lk" href="#projects">Projects</a><a class="lk" href="#timeline">Timeline</a><a class="lk" href="#contact">Contact</a>
+    </div>
+  </nav>
+  <div id="top" class="relative z-10 flex-1 flex items-center px-6 md:px-12 pb-20">
+    <div class="max-w-4xl">
+      <p class="hero-line text-cyan text-sm mb-6" style="--d:100ms">University Name, Class of 2026</p>
+      <h1 class="font-serif font-normal text-fog text-[2.6rem] sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
+        <span class="hero-line block" style="--d:250ms">BSc Computer Science finalist,</span>
+        <span class="hero-line block" style="--d:400ms"><span class="gt">aspiring AI/ML researcher.</span></span>
+      </h1>
+      <p class="hero-line mt-8 max-w-xl text-slate-300 text-lg" style="--d:600ms">I build and evaluate models for vision and prediction, and I’m applying for a Master’s program where I can turn that practice into research.</p>
+      <p class="hero-line mt-6 font-mono text-sm text-slate-400" style="--d:700ms">Currently exploring <span id="tick" class="text-cyan"></span><span class="caret"></span></p>
+      <div class="hero-line mt-10 flex flex-wrap gap-4" style="--d:850ms">
+        <a href="#projects" class="cta ease transition-all duration-300 text-ink px-7 py-3.5 rounded-full font-medium hover:-translate-y-0.5">View research and projects</a>
+        <!-- Replace href with the path to your CV PDF -->
+        <a href="#" download class="glass ease transition-all duration-300 px-7 py-3.5 rounded-full hover:text-cyan hover:-translate-y-0.5">Download academic CV</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ABOUT -->
+<section id="about" class="px-6 md:px-12 py-28 border-t border-line">
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-5 gap-14">
+    <div class="lg:col-span-3 rv">
+      <h2 class="font-serif text-4xl text-fog mb-8">Research interests and background</h2>
+      <div class="space-y-5 text-slate-300 max-w-[62ch] text-[1.05rem]">
+        <p>My academic focus is deep learning applied to perception and prediction: how models learn useful structure from images and tabular signals, and how we can tell whether they have learned it reliably.</p>
+        <p>Beneath the applied work sits a deliberate foundation in algorithms, data structures and the mathematics behind machine learning: linear algebra, probability and optimization. I want to understand why a method works, not only that it does.</p>
+        <p><em class="text-slate-400">Replace this text with two or three sentences on your motivation, a research question you care about, and the supervisors or labs you hope to work with.</em></p>
+      </div>
+    </div>
+    <div class="lg:col-span-2 rv" style="--d:120ms">
+      <h3 class="font-serif text-2xl text-fog mb-5">Focus areas</h3>
+      <ul class="glass rounded-2xl px-6 divide-y divide-line">
+        <li class="py-4"><span class="text-fog">Deep learning</span><span class="block text-sm text-slate-400">Architectures, training dynamics, generalization</span></li>
+        <li class="py-4"><span class="text-fog">Computer vision</span><span class="block text-sm text-slate-400">Detection, segmentation, dataset curation</span></li>
+        <li class="py-4"><span class="text-fog">Predictive modeling</span><span class="block text-sm text-slate-400">Feature design, validation, uncertainty</span></li>
+        <li class="py-4"><span class="text-fog">Big data analysis</span><span class="block text-sm text-slate-400">Pipelines, large-scale exploration, insight</span></li>
+      </ul>
+      <p class="mt-6 text-sm text-slate-400">Core CS: Algorithms · Data structures · Mathematics for ML</p>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack" class="px-6 md:px-12 py-28 bg-surface border-y border-line">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="font-serif text-4xl text-fog mb-12 rv">Technical stack</h2>
+    <div id="stackGroups" class="grid md:grid-cols-3 gap-10"></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="px-6 md:px-12 py-28">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="font-serif text-4xl text-fog mb-3 rv">Projects</h2>
+    <p class="text-slate-400 mb-10 rv max-w-[60ch]">Three tracks, each with a card template. Edit the <code class="font-mono text-cyan text-sm">PROJECTS</code> object in the script at the bottom of this file to fill them in.</p>
+    <div role="tablist" id="tabs" class="inline-flex flex-wrap gap-1 p-1 glass rounded-full mb-10 rv"></div>
+    <div id="panel" role="tabpanel" class="panel grid md:grid-cols-2 gap-6"></div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline" class="px-6 md:px-12 py-28 bg-surface border-y border-line">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="font-serif text-4xl text-fog mb-12 rv">Publications and contests</h2>
+    <ol class="relative border-l border-line ml-2 space-y-10" id="tl"></ol>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="px-6 md:px-12 py-28">
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14">
+    <div class="rv">
+      <h2 class="font-serif text-4xl text-fog mb-6">Contact</h2>
+      <p class="text-slate-300 max-w-[50ch] mb-8">Supervisors and admissions committees: I’m glad to share transcripts, code and reports on request.</p>
+      <ul class="space-y-3">
+        <li><a class="lk text-fog" href="https://github.com/your-handle" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a class="lk text-fog" href="https://linkedin.com/in/your-handle" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a class="lk text-fog" href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener">Google Scholar</a></li>
+      </ul>
+    </div>
+    <form id="cf" class="rv space-y-5" style="--d:120ms" novalidate>
+      <label class="block text-sm text-slate-300">Name
+        <input name="n" required class="mt-2 w-full bg-surface border border-line rounded-md px-4 py-3 text-fog focus:border-cyan outline-none transition-colors"></label>
+      <label class="block text-sm text-slate-300">Email
+        <input name="e" type="email" required class="mt-2 w-full bg-surface border border-line rounded-md px-4 py-3 text-fog focus:border-cyan outline-none transition-colors"></label>
+      <label class="block text-sm text-slate-300">Message
+        <textarea name="m" rows="5" required class="mt-2 w-full bg-surface border border-line rounded-md px-4 py-3 text-fog focus:border-cyan outline-none transition-colors"></textarea></label>
+      <button class="cta ease transition-all duration-300 text-ink px-7 py-3.5 rounded-full font-medium hover:-translate-y-0.5">Send message</button>
+      <p id="fs" class="text-sm text-slate-400" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="px-6 md:px-12 py-10 border-t border-line text-sm text-slate-500 flex flex-wrap justify-between gap-3">
+  <span>© 2026 Your Name</span><span>BSc Computer Science, University Name</span>
+</footer>
+
+<script>
+/* ===== Editable content ===== */
+const EMAIL = "you@university.edu"; // contact form opens a draft to this address
+
+const STACK = [
+  { t:"Languages", a:"cyan", items:["Python","R","C++","SQL"] },
+  { t:"AI/ML frameworks", a:"violet", items:["PyTorch","TensorFlow","Scikit-Learn","Hugging Face","Roboflow"] },
+  { t:"Data and tools", a:"cyan", items:["Git/GitHub","Docker","Linux","Jupyter","LaTeX/Overleaf"] }
+];
+
+const PROJECTS = {
+  ml: { tab:"Machine learning and vision", accent:"#06B6D4", count:2,
+    fields:[["Model architecture","e.g. ResNet-50 backbone with custom detection head"],["Dataset details","e.g. Roboflow workflow, classes, split, augmentation"]],
+    metrics:["Accuracy","F1-score","Loss"], curve:true,
+    links:["GitHub repo","Model space/demo","Technical report"] },
+  data: { tab:"Data analytics and big data", accent:"#8B5CF6", count:2,
+    fields:[["Data source","e.g. public dataset or API, size, time range"],["EDA highlights","e.g. distributions, correlations, anomalies"],["Data mining tools","e.g. Spark, pandas, scikit-learn"],["Key insights","e.g. the finding and how you validated it"]],
+    metrics:[], links:["GitHub repo","Interactive dashboard","Analysis paper"] },
+  cs: { tab:"Core CS and software engineering", accent:"#06B6D4", count:2,
+    fields:[["Core algorithms","e.g. graph search, B-trees, consensus"],["System architecture and database design","e.g. services, schema, indexing"]],
+    metrics:["Baseline","Optimized","Gain"], links:["GitHub repo","Live deployment","API documentation"] }
+};
+
+const TIMELINE = [
+  ["Month Year","Conference paper submission","IEEE format. Title, venue, status (submitted, accepted, published)."],
+  ["Month Year","Datathon","Event name, your role, placement, and the question your team answered."],
+  ["Month Year","Hackathon","Event name, what you built, tools used, result."]
+];
+
+/* ===== Rendering ===== */
+const $ = s => document.querySelector(s);
+$("#stackGroups").innerHTML = STACK.map((g,i)=>`
+  <div class="rv ${g.a==='violet'?'grp-b':''}" style="--d:${i*100}ms">
+    <h3 class="font-serif text-2xl text-fog mb-5">${g.t}</h3>
+    <div class="flex flex-wrap gap-2.5">${g.items.map(x=>`<span tabindex="0" class="pill cursor-default border border-line rounded-full px-4 py-1.5 text-sm text-slate-300">${x}</span>`).join("")}</div>
+  </div>`).join("");
+
+$("#tl").innerHTML = TIMELINE.map((r,i)=>`
+  <li class="rv pl-8 relative" style="--d:${i*100}ms">
+    <span class="pdot absolute -left-[5px] top-2 w-[9px] h-[9px] rounded-full bg-cyan"></span>
+    <p class="font-mono text-sm text-cyan">${r[0]}</p>
+    <h3 class="font-serif text-2xl text-fog mt-1">${r[1]}</h3>
+    <p class="text-slate-400 mt-1 max-w-[56ch]">${r[2]}</p>
+  </li>`).join("");
+
+const keys = Object.keys(PROJECTS);
+function card(p){
+  const m = p.metrics.length ? `<div class="grid grid-cols-3 gap-3 mt-5">${p.metrics.map(x=>`<div class="ph !p-3 text-center"><div class="font-mono text-lg" style="color:${p.accent}">—</div><div class="text-xs mt-1">${x}</div></div>`).join("")}</div>` : "";
+  const c = p.curve ? `<svg viewBox="0 0 300 70" class="w-full mt-4 h-16" aria-label="Loss curve placeholder"><rect x=".5" y=".5" width="299" height="69" rx="6" fill="none" stroke="#2A3550" stroke-dasharray="4 4"/><path d="M12 12 C60 50 110 56 160 58 S250 60 288 60" fill="none" stroke="${p.accent}" stroke-opacity=".5" stroke-width="1.5" stroke-dasharray="3 3"/><text x="150" y="30" fill="#64748B" font-size="10" text-anchor="middle">Loss curve</text></svg>` : "";
+  return `<article class="glass rounded-2xl p-7 flex flex-col hover:-translate-y-1" style="--ac:${p.accent}">
+    <h3 class="font-serif text-2xl text-fog">Project title</h3>
+    <p class="text-slate-400 text-sm mt-1 mb-5">One-sentence summary of the problem and your result.</p>
+    <div class="space-y-4">${p.fields.map(f=>`<div><div class="text-sm text-slate-300 mb-1.5">${f[0]}</div><div class="ph">${f[1]}</div></div>`).join("")}</div>
+    ${m}${c}
+    <div class="mt-6 pt-5 border-t border-line flex flex-wrap gap-2.5">${p.links.map((l,i)=>`<a href="#" class="ease transition-all duration-300 text-sm rounded-md px-4 py-2 border ${i===0?'':'border-line text-slate-300'}" style="${i===0?`border-color:${p.accent};color:${p.accent}`:''}" onmouseover="this.style.borderColor='${p.accent}';this.style.color='${p.accent}'" onmouseout="this.style.borderColor='${i===0?p.accent:''}';this.style.color='${i===0?p.accent:''}'">${l}</a>`).join("")}</div>
+  </article>`;
+}
+function show(k){
+  const p = PROJECTS[k];
+  document.querySelectorAll("#tabs button").forEach(b=>{ const on=b.dataset.k===k; b.setAttribute("aria-selected",on); b.style.background = on?PROJECTS[b.dataset.k].accent+"26":"transparent"; b.style.boxShadow = on?"inset 0 0 0 1px "+PROJECTS[b.dataset.k].accent:"none"; b.style.color = on?"#F1F5F9":"#94A3B8"; });
+  const el = $("#panel"); el.classList.remove("panel"); void el.offsetWidth; el.classList.add("panel");
+  el.innerHTML = Array.from({length:p.count},()=>card(p)).join("");
+}
+$("#tabs").innerHTML = keys.map(k=>`<button role="tab" data-k="${k}" class="px-5 py-2.5 text-sm rounded-full transition-all duration-300">${PROJECTS[k].tab}</button>`).join("");
+$("#tabs").addEventListener("click",e=>{ const b=e.target.closest("button"); if(b) show(b.dataset.k); });
+show(keys[0]);
+
+/* Contact form: opens an email draft (no server needed) */
+$("#cf").addEventListener("submit",e=>{
+  e.preventDefault(); const f=e.target;
+  if(!f.n.value||!f.e.checkValidity()||!f.m.value){ $("#fs").textContent="Enter your name, a valid email and a message."; return; }
+  const body = encodeURIComponent(f.m.value+"\n\nFrom: "+f.n.value+" <"+f.e.value+">");
+  $("#fs").textContent="Opening your email app with the message ready to send.";
+  location.href = "mailto:"+EMAIL+"?subject="+encodeURIComponent("Portfolio enquiry from "+f.n.value)+"&body="+body;
+});
+
+/* Cursor spotlight on glass cards */
+document.addEventListener("pointermove",e=>{const g=e.target.closest&&e.target.closest(".glass"); if(g){const r=g.getBoundingClientRect(); g.style.setProperty("--mx",(e.clientX-r.left)+"px"); g.style.setProperty("--my",(e.clientY-r.top)+"px");}});
+/* Scroll progress */
+addEventListener("scroll",()=>{const h=document.documentElement; $("#bar").style.transform="scaleX("+(h.scrollTop/Math.max(1,h.scrollHeight-h.clientHeight))+")";},{passive:true});
+/* Typing ticker */
+(function(){const w=["deep learning for vision","predictive models you can trust","large-scale data pipelines","the mathematics behind ML"],t=$("#tick");let i=0,j=0,del=false;
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches){t.textContent=w[0];return;}
+  (function step(){const s=w[i];j+=del?-1:1;t.textContent=s.slice(0,j);let d=del?28:55;if(!del&&j===s.length){del=true;d=1600}else if(del&&j===0){del=false;i=(i+1)%w.length;d=350}setTimeout(step,d)})();})();
+
+/* Scroll reveal */
+const io = new IntersectionObserver(es=>es.forEach(x=>{ if(x.isIntersecting){ x.target.classList.add("in"); io.unobserve(x.target);} }),{threshold:.12});
+document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+
+/* Neural-grid background */
+(function(){
+  const c=$("#net"), ctx=c.getContext("2d"); let W,H,pts=[],raf,m={x:-999,y:-999};
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function size(){ const r=c.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2); W=r.width;H=r.height; c.width=W*d;c.height=H*d; ctx.setTransform(d,0,0,d,0,0);
+    const n=Math.round(Math.min(95,W*H/12000)); pts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,v:Math.random()<.2})); }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(const p of pts){ if(!reduce){p.x+=p.vx;p.y+=p.vy; if(p.x<0||p.x>W)p.vx*=-1; if(p.y<0||p.y>H)p.vy*=-1;} }
+    for(let i=0;i<pts.length;i++){ for(let j=i+1;j<pts.length;j++){ const a=pts[i],b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+      if(d<140){ ctx.strokeStyle=(a.v||b.v?"rgba(139,92,246,":"rgba(6,182,212,")+(.3*(1-d/140))+")"; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); } } }
+    for(const p of pts){ const d=Math.hypot(p.x-m.x,p.y-m.y); if(d<170){ ctx.strokeStyle="rgba(103,232,249,"+(.55*(1-d/170))+")"; ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(m.x,m.y); ctx.stroke(); if(!reduce){p.x+=(p.x-m.x)*.0008;p.y+=(p.y-m.y)*.0008;} } }
+    for(const p of pts){ ctx.fillStyle=p.v?"rgba(139,92,246,.7)":"rgba(6,182,212,.6)"; ctx.beginPath(); ctx.arc(p.x,p.y,1.6,0,6.283); ctx.fill(); }
+    if(!reduce) raf=requestAnimationFrame(draw);
+  }
+  c.parentElement.addEventListener("pointermove",e=>{const r=c.getBoundingClientRect();m.x=e.clientX-r.left;m.y=e.clientY-r.top;});
+  c.parentElement.addEventListener("pointerleave",()=>{m.x=m.y=-999;});
+  size(); draw(); addEventListener("resize",()=>{size(); if(reduce)draw();});
+  document.addEventListener("visibilitychange",()=>{ if(document.hidden)cancelAnimationFrame(raf); else if(!reduce)draw(); });
+})();
+</script>
+</body>
+</html>
